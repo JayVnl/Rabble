@@ -1,3 +1,8 @@
+<?php
+  include('includes/handlers/register-handler.php');
+  include('includes/handlers/login-handler.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,7 +57,7 @@
         <label for="registerPassword2">Confirm password</label>
         <input type="password" name="registerPassword2" id="registerPassword2" required>
       </p>
-      <button type="submit" name="loginButton">Log in</button>
+      <button type="submit" name="registerButton">Sign up</button>
     </form>
   </div>
 </body>
