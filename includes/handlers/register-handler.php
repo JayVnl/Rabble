@@ -18,12 +18,14 @@
   }
 
   if(isset($_POST['registerButton'])){
-    $registerUsername = CleanFormUsername($_POST['registerUsername']);
     $firstName = CleanFormString($_POST['firstName']);
     $lastName = CleanFormString($_POST['lastName']);
+    $registerUsername = CleanFormUsername($_POST['registerUsername']);
     $email = CleanFormString($_POST['email']);
     $email2 = CleanFormString($_POST['email2']);
     $registerPassword = CleanFormPassword($_POST['registerPassword']);
     $registerPassword2 = CleanFormPassword($_POST['registerPassword2']);
+
+    $account->register($firstName, $lastName, $registerUsername, $email, $email2, $registerPassword, $registerPassword2);
   }
 ?>
