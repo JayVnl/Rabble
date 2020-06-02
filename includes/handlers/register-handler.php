@@ -26,6 +26,10 @@
     $registerPassword = CleanFormPassword($_POST['registerPassword']);
     $registerPassword2 = CleanFormPassword($_POST['registerPassword2']);
 
-    $account->register($firstName, $lastName, $registerUsername, $email, $email2, $registerPassword, $registerPassword2);
+    $successful = $account->register($firstName, $lastName, $registerUsername, $email, $email2, $registerPassword, $registerPassword2);
+
+    if($successful) {
+      header("Location: index.php");
+    }
   }
 ?>

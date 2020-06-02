@@ -1,9 +1,9 @@
 <?php
-  include('includes/classes/Account.php');
+  include("includes/classes/Account.php");
   $account = new Account();
   
-  include('includes/handlers/register-handler.php');
-  include('includes/handlers/login-handler.php');
+  include("includes/handlers/register-handler.php");
+  include("includes/handlers/login-handler.php");
 ?>
 
 <!DOCTYPE html>
@@ -33,18 +33,23 @@
     <form action="register.php" id="registerForm" method="POST">
       <h2>Register</h2>
       <p>
+        <?php echo $account->getError("First name has to be between 2 and 25 characters!"); ?>
         <label for="firstName">First name</label>
         <input type="text" name="firstName" id="firstName" required>
       </p>
       <p>
+        <?php echo $account->getError("Last name has to be between 2 and 30 characters!"); ?>
         <label for="lastName">Last name</label>
         <input type="text" name="lastName" id="lastName" required>
       </p>
       <p>
+        <?php echo $account->getError("Username has to be between 3 and 22 characters!"); ?>
         <label for="registerUsername">Username</label>
         <input type="text" name="registerUsername" id="registerUsername" required>
       </p>
       <p>
+        <?php echo $account->getError("Emails don't match!"); ?>
+        <?php echo $account->getError("Email is invalid!"); ?>
         <label for="email">Email</label>
         <input type="email" name="email" id="email" required>
       </p>
@@ -53,6 +58,9 @@
         <input type="email" name="email2" id="email2" required>
       </p>
       <p>
+        <?php echo $account->getError("Passwords don't match!"); ?>
+        <?php echo $account->getError("Password can only contain letters and numbers!"); ?>
+        <?php echo $account->getError("Password has to be between 5 and 30 character!"); ?>
         <label for="registerPassword">Password</label>
         <input type="password" name="registerPassword" id="registerPassword" required>
       </p>

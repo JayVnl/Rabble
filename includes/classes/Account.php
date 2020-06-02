@@ -4,7 +4,7 @@
     private $errorArray;
 
     public function __construct() {
-      $this->$errorArray = array();
+      $this->errorArray = array();
     }
 
     public function register($fn, $ln, $un, $em, $em2, $pw, $pw2) {
@@ -13,6 +13,19 @@
       $this->checkUsername($un);
       $this->checkEmails($em, $em2);
       $this->checkPasswords($pw, $pw2);
+
+      if(empty($this->errorArray)) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    public function getError($error) {
+      if(!in_array($error, $this->errorArray)) {
+        $error = "";
+      }
+      return "<span class='errorMessage'>$error</span>";
     }
   
     private function checkFirstName($fn) {
