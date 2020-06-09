@@ -17,7 +17,7 @@
     return $inputText;
   }
 
-  if(isset($_POST['registerButton'])){
+  if (isset($_POST['registerButton'])){
     $firstName = CleanFormString($_POST['firstName']);
     $lastName = CleanFormString($_POST['lastName']);
     $registerUsername = CleanFormUsername($_POST['registerUsername']);
@@ -28,7 +28,7 @@
 
     $successful = $account->register($firstName, $lastName, $registerUsername, $email, $email2, $registerPassword, $registerPassword2);
 
-    if($successful) {
+    if ($successful) {
       header("Location: index.php");
     }
   }

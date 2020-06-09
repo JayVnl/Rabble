@@ -6,6 +6,12 @@
   
   include("includes/handlers/register-handler.php");
   include("includes/handlers/login-handler.php");
+
+  function getInputValue($name) {
+    if (isset($_POST[$name])) {
+      echo $_POST[$name];
+    }
+  }
 ?>
 
 <!DOCTYPE html>
@@ -37,27 +43,27 @@
       <p>
         <?php echo $account->getError(Constants::$fnLength); ?>
         <label for="firstName">First name</label>
-        <input type="text" name="firstName" id="firstName" required>
+        <input type="text" name="firstName" id="firstName" value="<?php getInputValue('firstName') ?>" required>
       </p>
       <p>
         <?php echo $account->getError(Constants::$lnLength); ?>
         <label for="lastName">Last name</label>
-        <input type="text" name="lastName" id="lastName" required>
+        <input type="text" name="lastName" id="lastName" value="<?php getInputValue('lastName') ?>" required>
       </p>
       <p>
         <?php echo $account->getError(Constants::$unLength); ?>
         <label for="registerUsername">Username</label>
-        <input type="text" name="registerUsername" id="registerUsername" required>
+        <input type="text" name="registerUsername" id="registerUsername" value="<?php getInputValue('registerUsername') ?>" required>
       </p>
       <p>
         <?php echo $account->getError(Constants::$emNoMatch); ?>
         <?php echo $account->getError(Constants::$emInvalid); ?>
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" required>
+        <input type="email" name="email" id="email" value="<?php getInputValue('email') ?>" required>
       </p>
       <p>
         <label for="email2">Confirm email</label>
-        <input type="email" name="email2" id="email2" required>
+        <input type="email" name="email2" id="email2" value="<?php getInputValue('email2') ?>" required>
       </p>
       <p>
         <?php echo $account->getError(Constants::$pwNoMatch); ?>
