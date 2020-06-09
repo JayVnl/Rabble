@@ -43,7 +43,7 @@
     }
 
     private function checkUsername($un) {
-      if (strlen($un) > 22 || strlen($un) < 3) {
+      if (strlen($un) > 25 || strlen($un) < 3) {
         array_push($this->errorArray, Constants::$unLength);
         return;
       }
