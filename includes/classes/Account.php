@@ -30,50 +30,50 @@
   
     private function checkFirstName($fn) {
       if(strlen($fn) > 25 || strlen($fn) < 2) {
-        array_push($this->errorArray, "First name has to be between 2 and 25 characters!");
+        array_push($this->errorArray, Constants::$fnLength);
         return;
       }
     }
   
     private function checkLastName($ln) {
       if(strlen($ln) > 30 || strlen($ln) < 2) {
-        array_push($this->errorArray, "Last name has to be between 2 and 30 characters!");
+        array_push($this->errorArray, Constants::$lnLength);
         return;
       }
     }
 
     private function checkUsername($un) {
       if(strlen($un) > 22 || strlen($un) < 3) {
-        array_push($this->errorArray, "Username has to be between 3 and 22 characters!");
+        array_push($this->errorArray, Constants::$unLength);
         return;
       }
     }
   
     private function checkEmails($em, $em2) {
       if($em != $em2) {
-        array_push($this->errorArray, "Emails don't match!");
+        array_push($this->errorArray, Constants::$emNoMatch);
         return;
       }
       
       if(!filter_var($em, FILTER_VALIDATE_EMAIL)) {
-        array_push($this->errorArray, "Email is invalid!");
+        array_push($this->errorArray, Constants::$emInvalid);
         return;
       }
     }
   
     private function checkPasswords($pw, $pw2) {
       if($pw != $pw2) {
-        array_push($this->errorArray, "Passwords don't match!");
+        array_push($this->errorArray, Constants::$pwNoMatch);
         return;
       }
 
       if(preg_match('/[^A-Za-z0-9]/', $pw)) {
-        array_push($this->errorArray, "Password can only contain letters and numbers!");
+        array_push($this->errorArray, Constants::$pwNoAlpha);
         return;
       }
 
       if(strlen($pw) > 30 || strlen($pw) < 5) {
-        array_push($this->errorArray, "Password has to be between 5 and 30 character!");
+        array_push($this->errorArray, Constants::$pwLength);
         return;
       }
     }
