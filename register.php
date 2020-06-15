@@ -47,66 +47,63 @@
     ?>
 
   <div id="inputContainer">
-    <form action="register.php" id="loginForm" method="POST">
-      <h2>Login</h2>
-      <p>
+    <div id="loginContainer">
+      <form action="register.php" id="loginForm" method="POST">
+        <img src="assets/img/rabble_logo.svg" />
+        <br>
+        <div class="grid-login">
+          <input type="text" name="loginUsername" id="loginUsername" value="<?php getInputValue('loginUsername') ?>" placeholder="Username" required>
+          <input type="password" name="loginPassword" id="loginPassword" placeholder="Password" required>
+          <div class="btn-border">
+            <button type="submit" name="loginButton">Log in</button>
+          </div>
+        </div>
         <?php echo $account->getError(Constants::$loginFailed); ?>
-        <label for="loginUsername">Username</label>
-        <input type="text" name="loginUsername" id="loginUsername" value="<?php getInputValue('loginUsername') ?>" required>
-      </p>
-      <p>
-        <label for="loginPassword">Password</label>
-        <input type="password" name="loginPassword" id="loginPassword" required>
-      </p>
-      <button type="submit" name="loginButton">Log in</button>
-      <div class="openRegisterForm">
-        <span id="hideLogin">Don't have an account yet? Sign up here.</span>
-      </div>
-    </form>
+        
+        <br>
+        <div class="openRegisterForm">
+          <span class="text">Don't have an account? <span id="hideLogin">Sign up here</span></span>
+        </div>
+      </form>
+    </div>
+    
 
     <form action="register.php" id="registerForm" method="POST">
-      <h2>Register</h2>
-      <p>
-        <?php echo $account->getError(Constants::$fnLength); ?>
-        <label for="firstName">First name</label>
-        <input type="text" name="firstName" id="firstName" value="<?php getInputValue('firstName') ?>" required>
-      </p>
-      <p>
-        <?php echo $account->getError(Constants::$lnLength); ?>
-        <label for="lastName">Last name</label>
-        <input type="text" name="lastName" id="lastName" value="<?php getInputValue('lastName') ?>" required>
-      </p>
-      <p>
-        <?php echo $account->getError(Constants::$unLength); ?>
-        <?php echo $account->getError(Constants::$unTaken); ?>
-        <label for="registerUsername">Username</label>
-        <input type="text" name="registerUsername" id="registerUsername" value="<?php getInputValue('registerUsername') ?>" required>
-      </p>
-      <p>
-        <?php echo $account->getError(Constants::$emNoMatch); ?>
-        <?php echo $account->getError(Constants::$emInvalid); ?>
-        <?php echo $account->getError(Constants::$emTaken); ?>
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" value="<?php getInputValue('email') ?>" required>
-      </p>
-      <p>
-        <label for="email2">Confirm email</label>
-        <input type="email" name="email2" id="email2" value="<?php getInputValue('email2') ?>" required>
-      </p>
-      <p>
-        <?php echo $account->getError(Constants::$pwNoMatch); ?>
-        <?php echo $account->getError(Constants::$pwNoAlpha); ?>
-        <?php echo $account->getError(Constants::$pwLength); ?>
-        <label for="registerPassword">Password</label>
-        <input type="password" name="registerPassword" id="registerPassword" required>
-      </p>
-      <p>
-        <label for="registerPassword2">Confirm password</label>
-        <input type="password" name="registerPassword2" id="registerPassword2" required>
-      </p>
+      <?php echo $account->getError(Constants::$fnLength); ?>
+      <label for="firstName">First name</label>
+      <input type="text" name="firstName" id="firstName" value="<?php getInputValue('firstName') ?>" required>
+      <br>
+      <?php echo $account->getError(Constants::$lnLength); ?>
+      <label for="lastName">Last name</label>
+      <input type="text" name="lastName" id="lastName" value="<?php getInputValue('lastName') ?>" required>
+      <br> 
+      <?php echo $account->getError(Constants::$unLength); ?>
+      <?php echo $account->getError(Constants::$unTaken); ?>
+      <label for="registerUsername">Username</label>
+      <input type="text" name="registerUsername" id="registerUsername" value="<?php getInputValue('registerUsername') ?>" required>
+      <br>
+      <?php echo $account->getError(Constants::$emNoMatch); ?>
+      <?php echo $account->getError(Constants::$emInvalid); ?>
+      <?php echo $account->getError(Constants::$emTaken); ?>
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" value="<?php getInputValue('email') ?>" required>
+      <br>
+      <label for="email2">Confirm email</label>
+      <input type="email" name="email2" id="email2" value="<?php getInputValue('email2') ?>" required>
+      <br>
+      <?php echo $account->getError(Constants::$pwNoMatch); ?>
+      <?php echo $account->getError(Constants::$pwNoAlpha); ?>
+      <?php echo $account->getError(Constants::$pwLength); ?>
+      <label for="registerPassword">Password</label>
+      <input type="password" name="registerPassword" id="registerPassword" required>
+      <br>
+      <label for="registerPassword2">Confirm password</label>
+      <input type="password" name="registerPassword2" id="registerPassword2" required>
+      <br>
       <button type="submit" name="registerButton">Sign up</button>
+      <br>
       <div class="openRegisterForm">
-        <span id="hideRegister">Already have an account? Log in here.</span>
+        <span id="hideRegister">Already have an account? Log in here</span>
       </div>
     </form>
   </div>
