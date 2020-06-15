@@ -22,9 +22,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register</title>
+  <link rel="stylesheet" href="assets/css/register.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="assets/js/register.js"></script>
 </head>
 
 <body>
+  <?php 
+    if (isset($_POST['registerButton'])) {
+      echo '<script>
+              $(document).ready(function () {
+                $("#loginForm").hide();
+                $("#registerForm").show();
+              })
+            </script>';
+    } else {
+      echo '<script>
+              $(document).ready(function () {
+                $("#loginForm").show();
+                $("#registerForm").hide();
+              })
+            </script>';
+    }
+    ?>
+
   <div id="inputContainer">
     <form action="register.php" id="loginForm" method="POST">
       <h2>Login</h2>
@@ -38,6 +59,9 @@
         <input type="password" name="loginPassword" id="loginPassword" required>
       </p>
       <button type="submit" name="loginButton">Log in</button>
+      <div class="openRegisterForm">
+        <span id="hideLogin">Don't have an account yet? Sign up here.</span>
+      </div>
     </form>
 
     <form action="register.php" id="registerForm" method="POST">
@@ -81,6 +105,9 @@
         <input type="password" name="registerPassword2" id="registerPassword2" required>
       </p>
       <button type="submit" name="registerButton">Sign up</button>
+      <div class="openRegisterForm">
+        <span id="hideRegister">Already have an account? Log in here.</span>
+      </div>
     </form>
   </div>
 </body>
