@@ -53,12 +53,14 @@
       </p>
       <p>
         <?php echo $account->getError(Constants::$unLength); ?>
+        <?php echo $account->getError(Constants::$unTaken); ?>
         <label for="registerUsername">Username</label>
         <input type="text" name="registerUsername" id="registerUsername" value="<?php getInputValue('registerUsername') ?>" required>
       </p>
       <p>
         <?php echo $account->getError(Constants::$emNoMatch); ?>
         <?php echo $account->getError(Constants::$emInvalid); ?>
+        <?php echo $account->getError(Constants::$emTaken); ?>
         <label for="email">Email</label>
         <input type="email" name="email" id="email" value="<?php getInputValue('email') ?>" required>
       </p>
