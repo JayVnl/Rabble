@@ -1,9 +1,10 @@
 <?php
   class Account {
-
+    private $con;
     private $errorArray;
 
-    public function __construct() {
+    public function __construct($con) {
+      $this->con = $con;
       $this->errorArray = array();
     }
 
@@ -15,7 +16,7 @@
       $this->checkPasswords($pw, $pw2);
 
       if (empty($this->errorArray)) {
-        return true;
+        return $this->insertUserDetails($fn, $ln, $un, $em, $pw);
       } else {
         return false;
       }
@@ -26,6 +27,17 @@
         $error = "";
       }
       return "<span class='errorMessage'>$error</span>";
+    }
+
+    private function insertUserDetails($fn, $ln, $un, $em, $pw) {
+      // I know md5 isn't good for encrypting passwords so this will most likely change later on to something like bcrypt
+      $pwEncrypted = md5($pw);
+      $profilePic = "assets/images/profile-pics/standard_icon.png";
+      $date = date("Y-m-d");
+
+      $result = mysqli_query($this->con, "INSERT INTO users VALUES ('', '$un', '$fn', '$ln', '$em', '$pwEncrypted', '$date', '$profilePic')");
+    
+      return $result;
     }
   
     private function checkFirstName($fn) {
