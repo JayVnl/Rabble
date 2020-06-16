@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -8,11 +10,12 @@ html {
   width: 100%;
   height: 100%;
   color: #b8b8b8;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
 }
 
 .text {
-  color: #b8b8b8;
+  color: #727376;
 }
 
 #registerForm,
@@ -32,6 +35,16 @@ html {
   bottom: 0;
   width: 100%;
   height: 89%;
+  z-index: 3;
+}
+
+#registerContainer {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: 96%;
+  z-index: 2;
 }
 
 .grid-login {
@@ -40,7 +53,7 @@ html {
   display: grid;
   justify-content: center;
   grid-template-columns: 80%;
-  grid-gap: 15px;
+  grid-gap: 12px;
 }
 
 input {
@@ -77,8 +90,30 @@ button {
   border-radius: 12px;
   font-size: 22px;
   color: #7402CE;
+  transition: .3s ease-in-out;
+  font-weight: 600;
 }
 
-#hideLogin {
+button:hover {
+  background: transparent;
+  color: #b8b8b8;
+  transition: .3s ease-in-out;
+}
+
+#hideLogin,
+#hideRegister {
   color: #7402CE;
+  cursor: pointer;
+}
+
+.errorBoxLogin {
+  position: relative;
+  margin-top: -20px;
+  margin-bottom: 10px;
+}
+
+.errorBoxRegister {
+  position: relative;
+  margin-top: -30px;
+  margin-bottom: 10px;
 }
